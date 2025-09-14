@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频上传器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 视频上传器</h1>
+            <p>支持拖拽上传，快速预览您的视频</p>
+        </header>
+
+        <main>
+            <!-- 上传区域 -->
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>拖拽视频文件到这里</h3>
+                        <p>或者点击选择文件</p>
+                        <input type="file" id="fileInput" accept="video/*" multiple>
+                        <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                            选择视频文件
+                        </button>
+                    </div>
+                    <div class="upload-progress" id="uploadProgress" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span class="progress-text" id="progressText">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 视频预览区域 -->
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <h2>视频预览</h2>
+                <div class="video-grid" id="videoGrid">
+                    <!-- 动态生成的视频预览卡片 -->
+                </div>
+            </div>
+
+            <!-- 错误提示 -->
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <span class="error-icon">⚠️</span>
+                <span class="error-text" id="errorText"></span>
+                <button class="close-error" onclick="hideError()">×</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>支持的格式：MP4, AVI, MOV, WMV, FLV | 最大文件大小：100MB</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
